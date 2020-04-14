@@ -1,19 +1,6 @@
-import {
-  Component,
-  DebugElement,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, DebugElement, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {
-  FormBuilder,
-  FormGroup,
-  FormGroupDirective,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupDirective, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
 import { MockComponents } from 'ng-mocks';
