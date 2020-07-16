@@ -1,0 +1,21 @@
+.lg-choice-group {
+  display: block;
+  margin-bottom: var(--component-margin);
+}
+
+.lg-choice-group--inline {
+  .lg-choice-button {
+    display: inline-block;
+    margin-right: var(--space-md);
+  }
+
+  .lg-choice-button:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.lg-choice-segment {
+  display: inline-block;
+  border: var(--border-width) solid var(--choice-border-color);
+  border-radius: var(--border-radius-sm);
+}

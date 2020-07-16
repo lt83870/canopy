@@ -87,13 +87,13 @@ function invalidValidator(): ValidatorFn {
         </lg-validation>
       </lg-select-field>
 
-      <lg-radio-group formControlName="radio">
+      <lg-choice-group formControlName="radio">
         Radio option
         <lg-hint>This is a standard radio group</lg-hint>
-        <lg-radio-button value="yellow">Yellow</lg-radio-button>
-        <lg-radio-button value="red">Red</lg-radio-button>
-        <lg-radio-button value="blue">Blue</lg-radio-button>
-        <lg-radio-button value="invalid">Invalid</lg-radio-button>
+        <lg-choice-button value="yellow">Yellow</lg-choice-button>
+        <lg-choice-button value="red">Red</lg-choice-button>
+        <lg-choice-button value="blue">Blue</lg-choice-button>
+        <lg-choice-button value="invalid">Invalid</lg-choice-button>
         <lg-validation
           *ngIf="isControlInvalid(radio, validationForm) && radio.hasError('invalid')"
         >
@@ -104,7 +104,7 @@ function invalidValidator(): ValidatorFn {
         >
           Please select an option
         </lg-validation>
-      </lg-radio-group>
+      </lg-choice-group>
 
       <lg-checkbox-group formControlName="colors">
         Checkbox group

@@ -1,0 +1,15 @@
+:root {
+  --choice-bg-color: var(--color-super-blue);
+  --choice-color: var(--color-white);
+  --choice-border-color: var(--border-color);
+  --choice-disabled-color: var(--color-taupe-grey);
+
+  --choice-inner-height: 0.5rem;
+  --choice-inner-width: var(--choice-inner-height);
+  --choice-outer-height: 1rem;
+  --choice-outer-width: var(--choice-outer-height);
+
+  --choice-segment-separator-border-width: calc(var(--border-width) / 10);
+  --choice-segment-separator-border-color: var(--color-platinum);
+  --choice-segment-label-min-width: calc(6 * var(--space-unit));
+}

@@ -323,14 +323,23 @@
 
             <lg-toggle variant="switch" formControlName="switch">Test switch</lg-toggle>
 
-            <lg-radio-group formControlName="radio">
+            <lg-choice-group formControlName="radio">
               Test radio group
               <lg-hint>Pick an option</lg-hint>
-              <lg-radio-button value="red">Red</lg-radio-button>
-              <lg-radio-button value="yellow">Yellow</lg-radio-button>
-              <lg-radio-button value="green">Green</lg-radio-button>
-              <lg-radio-button value="blue">Blue</lg-radio-button>
-            </lg-radio-group>
+              <lg-choice-button value="red">Red</lg-choice-button>
+              <lg-choice-button value="yellow">Yellow</lg-choice-button>
+              <lg-choice-button value="green">Green</lg-choice-button>
+              <lg-choice-button value="blue">Blue</lg-choice-button>
+            </lg-choice-group>
+
+
+            <lg-choice-group formControlName="radio" variant="segment" value="top">
+              Test segment
+              <lg-choice-button value="top">Top</lg-choice-button>
+              <lg-choice-button value="right">Right</lg-choice-button>
+              <lg-choice-button value="bottom">Bottom</lg-choice-button>
+              <lg-choice-button value="left">Left</lg-choice-button>
+            </lg-choice-group>
 
             <lg-filter-group formControlName="filter">
               Test filter group
