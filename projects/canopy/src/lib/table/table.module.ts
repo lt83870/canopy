@@ -25,7 +25,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [CommonModule, LgIconModule],
+  imports: [CommonModule],
   declarations: [...components],
   exports: [...components],
 })
