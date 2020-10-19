@@ -90,6 +90,7 @@ describe('LgRadioGroupComponent', () => {
 
     fixture = TestBed.createComponent(TestRadioGroupComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
 
     groupDebugElement = fixture.debugElement.query(By.directive(LgRadioGroupComponent));
     groupInstance = groupDebugElement.injector.get<LgRadioGroupComponent>(
@@ -102,9 +103,7 @@ describe('LgRadioGroupComponent', () => {
 
     radioDebugElements = fixture.debugElement.queryAll(By.css('lg-radio-button'));
 
-    radioInstances = radioDebugElements.map((debugEl) => debugEl.componentInstance);
-
-    fixture.detectChanges();
+    radioInstances = radioDebugElements.map(debugEl => debugEl.componentInstance);
   }));
 
   it('sets all radio buttons to the same name', () => {
@@ -113,6 +112,16 @@ describe('LgRadioGroupComponent', () => {
     for (const radio of radioInstances) {
       expect(radio.name).toBe(name);
     }
+  });
+
+  it('adds a wrapper for the segment radio in the template', () => {
+    expect(fixture.debugElement.query(By.css('.lg-radio-segment'))).toBeNull();
+
+    groupInstance.variant = 'segment';
+    fixture.detectChanges();
+    expect(
+      fixture.debugElement.query(By.css('.lg-radio-segment')).nativeElement,
+    ).toBeDefined();
   });
 
   it('sets the correct variant based on the selector', () => {
@@ -127,12 +136,12 @@ describe('LgRadioGroupComponent', () => {
 
   it('checks the selected radio button when a value is provided', () => {
     const blueOption: DebugElement = radioDebugElements.find(
-      (radioDebugElement) => radioDebugElement.componentInstance.value === 'blue',
+      debugElement => debugElement.componentInstance.value === 'blue',
     );
     blueOption.query(By.css('input')).triggerEventHandler('click', null);
     fixture.detectChanges();
     const checkedOption: DebugElement = radioDebugElements.find(
-      (radioDebugElement) => radioDebugElement.componentInstance.checked === true,
+      debugElement => debugElement.componentInstance.checked === true,
     );
     expect(checkedOption.componentInstance.value).toBe('blue');
   });
@@ -156,9 +165,9 @@ describe('LgRadioGroupComponent', () => {
   it('marks the selected radio when the value is changed', () => {
     groupInstance.value = 'red';
     fixture.detectChanges();
-    const selected = radioInstances.find((radio) => radio.value === 'red');
+    const selected = radioInstances.find(radio => radio.value === 'red');
     expect(selected.checked).toBe(true);
-    const notSelected = radioInstances.filter((radio) => radio.value !== 'red');
+    const notSelected = radioInstances.filter(radio => radio.value !== 'red');
     for (const radio of notSelected) {
       expect(radio.checked).toBe(false);
     }
@@ -166,7 +175,7 @@ describe('LgRadioGroupComponent', () => {
 
   it('updates the model value when a radio option is checked', () => {
     const blueOption: DebugElement = radioDebugElements.find(
-      (radioDebugElement) => radioDebugElement.componentInstance.value === 'blue',
+      radioDebugElement => radioDebugElement.componentInstance.value === 'blue',
     );
     blueOption.query(By.css('input')).triggerEventHandler('click', null);
     fixture.detectChanges();

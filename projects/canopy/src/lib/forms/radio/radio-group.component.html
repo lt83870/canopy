@@ -1,9 +1,19 @@
+<ng-template #transclude><ng-content select="lg-radio-button, lg-filter-button, lg-segment-button"></ng-content></ng-template>
+
 <fieldset [attr.aria-describedby]="ariaDescribedBy">
   <legend lg-label [attr.for]="id" lgMarginBottom="xs">
     <ng-content></ng-content>
   </legend>
   <ng-content select="lg-hint"></ng-content>
-  <ng-content select="lg-radio-button, lg-filter-button"></ng-content>
+
+  <div *ngIf="variant === 'segment'" class="lg-radio-segment">
+    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+  </div>
+
+  <ng-container *ngIf="variant !== 'segment'">
+    <ng-container *ngTemplateOutlet="transclude"></ng-container>
+  </ng-container>
+
   <ng-content select="lg-validation"></ng-content>
 </fieldset>
 <ng-content select="lg-hint"></ng-content>

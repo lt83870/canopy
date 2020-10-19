@@ -58,10 +58,33 @@ Generate the markup as show in the example below.
 | Class | Description |
 |------|-------------|
 | \`\`lg-radio-button--filter\`\` | Adds filter variant styles to the radio button element |
+| \`\`lg-radio-button--segment\`\` | Adds segment variant styles to the radio button element |
 | \`\`lg-radio-button__input\`\` | Adds styles to the radio button input element |
 | \`\`lg-radio-button__label\`\` | Adds styles to the radio label element |
 
 ### Examples:
+${
+  name === 'Segment'
+    ? `
+~~~html
+<div class="lg-radio-group">
+  <fieldset>
+    <legend class="lg-label">Color</legend>
+    <div class="lg-radio--segment">
+      <div class="lg-radio-button lg-radio-button--segment">
+        <label class="lg-radio-button__label" for="red">Red</label>
+        <input class="lg-radio-button__input" id="red" name="color" value="red" checked="true">
+      </div>
+      <div class="lg-radio-button lg-radio-button--segment">
+        <label class="lg-radio-button__label" for="red">Blue</label>
+        <input class="lg-radio-button__input" id="red" name="color" value="blue">
+      </div>
+    </div>
+  </fieldset>
+</div>
+~~~
+`
+    : name === 'Filter' ? `
 ~~~html
 <div class="lg-radio-group">
   <label class="lg-input__label" for="color">Color</label>
@@ -75,4 +98,22 @@ Generate the markup as show in the example below.
   </div>
 </div>
 ~~~
+` : `
+~~~html
+<div class="lg-radio-group">
+  <fieldset>
+    <legend class="lg-label">Color</legend>
+    <div class="lg-radio-button">
+      <label class="lg-radio-button__label" for="red">Red</label>
+      <input class="lg-radio-button__input" id="red" name="color" value="red" checked="true">
+    </div>
+    <div class="lg-radio-buttont">
+      <label class="lg-radio-button__label" for="red">Blue</label>
+      <input class="lg-radio-button__input" id="red" name="color" value="blue">
+    </div>
+  </fieldset>
+</div>
+~~~
+`
+}
 `;

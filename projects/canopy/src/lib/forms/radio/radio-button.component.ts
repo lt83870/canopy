@@ -1,15 +1,15 @@
 import {
   Component,
+  ElementRef,
   Host,
   HostBinding,
   Input,
   OnInit,
   Optional,
+  Renderer2,
   Self,
   SkipSelf,
   ViewEncapsulation,
-  Renderer2,
-  ElementRef,
 } from '@angular/core';
 import { FormGroupDirective, NgControl } from '@angular/forms';
 
@@ -20,7 +20,7 @@ import { RadioVariant } from './radio.interface';
 let nextUniqueId = 0;
 
 @Component({
-  selector: 'lg-radio-button, lg-filter-button',
+  selector: 'lg-radio-button, lg-filter-button, lg-segment-button',
   templateUrl: './radio-button.component.html',
   styleUrls: ['./radio-button.component.scss', './radio-button--filter.component.scss'],
   encapsulation: ViewEncapsulation.None,

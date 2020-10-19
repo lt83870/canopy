@@ -89,7 +89,7 @@ For a select field replace the input field with a select option.
 ## Radio group
 
 ~~~html
-<div class="lg-choice-group lg-choice-group--error">
+<div class="lg-radio-group lg-radio-group--error">
   <fieldset aria-describedby="lg-hint-2 lg-validation-2">
     <legend class="lg-label" id="lg-label-2">
       Color
@@ -97,13 +97,13 @@ For a select field replace the input field with a select option.
     <div id="lg-hint-2" class="lg-hint">
       Choose a colour
     </div>
-    <div value="yellow" class="lg-choice-button lg-choice-button--error">
-      <input class="lg-choice-button__input" type="radio" id="lg-choice-button-1" name="lg-choice-group-1" value="yellow">
-      <label class="lg-choice-button__label" for="lg-choice-button-1">Yellow</label>
+    <div value="yellow" class="lg-radio-button lg-radio-button--error">
+      <input class="lg-radio-button__input" type="radio" id="lg-radio-button-1" name="lg-radio-group-1" value="yellow">
+      <label class="lg-radio-button__label" for="lg-radio-button-1">Yellow</label>
     </div>
-    <div value="red" class="lg-choice-button lg-choice-button--error">
-      <input class="lg-choice-button__input" type="radio" id="lg-choice-button-2" name="lg-choice-group-1" value="red">
-      <label class="lg-choice-button__label" for="lg-choice-button-2">Red</label>
+    <div value="red" class="lg-radio-button lg-radio-button--error">
+      <input class="lg-radio-button__input" type="radio" id="lg-radio-button-2" name="lg-radio-group-1" value="red">
+      <label class="lg-radio-button__label" for="lg-radio-button-2">Red</label>
     </div>
     <div class="lg-validation--error lg-validation" id="lg-validation-2">
       Please select a colour

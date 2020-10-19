@@ -1,21 +1,21 @@
-.lg-choice-group {
+.lg-radio-group {
   display: block;
   margin-bottom: var(--component-margin);
 }
 
-.lg-choice-group--inline {
-  .lg-choice-button {
+.lg-radio-group--inline {
+  .lg-radio-button {
     display: inline-block;
     margin-right: var(--space-md);
   }
 
-  .lg-choice-button:last-of-type {
+  .lg-radio-button:last-of-type {
     margin-right: 0;
   }
 }
 
-.lg-choice-segment {
+.lg-radio-segment {
   display: inline-block;
-  border: var(--border-width) solid var(--choice-border-color);
+  border: var(--border-width) solid var(--radio-border-color);
   border-radius: var(--border-radius-sm);
 }

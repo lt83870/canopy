@@ -4,11 +4,11 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 
 import { CanopyModule } from '../../canopy.module';
-import { notes } from './choice.notes';
-import { createChoiceStory, ReactiveFormComponent } from './choice.stories.common';
+import { notes } from './radio.notes';
+import { createRadioStory, ReactiveFormComponent } from './radio.stories.common';
 
 export default {
-  title: 'Components/Form/Radio',
+  title: 'Components/Form/Segment',
   parameters: {
     decorators: [
       withKnobs,
@@ -18,12 +18,12 @@ export default {
       }),
     ],
     'in-dsm': {
-      id: '5ec4fc7c5dd42a743133d4f8',
+      id: '5ed64569a269db443068121a',
     },
     notes: {
-      markdown: notes('Radio'),
+      markdown: notes('Segment'),
     },
   },
 };
 
-export const standard = () => createChoiceStory('radio');
+export const standard = () => createRadioStory('segment');
