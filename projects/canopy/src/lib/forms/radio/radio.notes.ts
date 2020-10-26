@@ -57,10 +57,16 @@ Generate the markup as show in the example below.
 ### Radio button
 | Class | Description |
 |------|-------------|
-| \`\`lg-radio-button--filter\`\` | Adds filter variant styles to the radio button element |
-| \`\`lg-radio-button--segment\`\` | Adds segment variant styles to the radio button element |
 | \`\`lg-radio-button__input\`\` | Adds styles to the radio button input element |
 | \`\`lg-radio-button__label\`\` | Adds styles to the radio label element |
+${
+  name === 'Segment'
+    ? `| \`\`lg-radio-button--segment\`\` | Adds segment variant styles to the radio button element |`
+    : name === 'Filter'
+    ? `| \`\`lg-radio-button--filter\`\` | Adds filter variant styles to the radio button element |`
+    : ''
+}
+
 
 ### Examples:
 ${
@@ -84,7 +90,8 @@ ${
 </div>
 ~~~
 `
-    : name === 'Filter' ? `
+    : name === 'Filter'
+    ? `
 ~~~html
 <div class="lg-radio-group">
   <label class="lg-input__label" for="color">Color</label>
@@ -98,7 +105,8 @@ ${
   </div>
 </div>
 ~~~
-` : `
+`
+    : `
 ~~~html
 <div class="lg-radio-group">
   <fieldset>
@@ -107,7 +115,7 @@ ${
       <label class="lg-radio-button__label" for="red">Red</label>
       <input class="lg-radio-button__input" id="red" name="color" value="red" checked="true">
     </div>
-    <div class="lg-radio-buttont">
+    <div class="lg-radio-button">
       <label class="lg-radio-button__label" for="red">Blue</label>
       <input class="lg-radio-button__input" id="red" name="color" value="blue">
     </div>

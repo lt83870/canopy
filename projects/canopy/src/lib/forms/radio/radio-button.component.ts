@@ -22,7 +22,11 @@ let nextUniqueId = 0;
 @Component({
   selector: 'lg-radio-button, lg-filter-button, lg-segment-button',
   templateUrl: './radio-button.component.html',
-  styleUrls: ['./radio-button.component.scss', './radio-button--filter.component.scss'],
+  styleUrls: [
+    './radio-button.component.scss',
+    './radio-button--filter.component.scss',
+    './radio-button--segment.component.scss',
+  ],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgRadioButtonComponent implements OnInit {

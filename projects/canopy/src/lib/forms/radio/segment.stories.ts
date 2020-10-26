@@ -1,20 +1,59 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
+import { action } from '@storybook/addon-actions';
 
-import { CanopyModule } from '../../canopy.module';
 import { notes } from './radio.notes';
-import { createRadioStory, ReactiveFormComponent } from './radio.stories.common';
+import { LgRadioModule } from './radio.module';
+
+@Component({
+  selector: 'lg-reactive-form-segment',
+  template: `
+    <form [formGroup]="form">
+      <lg-segment-group formControlName="color">
+        {{ label }}
+        <lg-segment-button value="red">Red</lg-segment-button>
+        <lg-segment-button value="yellow">Yellow</lg-segment-button>
+        <lg-segment-button value="green">Green</lg-segment-button>
+        <lg-segment-button value="blue">Blue</lg-segment-button>
+      </lg-segment-group>
+    </form>
+  `,
+})
+class ReactiveFormSegmentComponent {
+  @Input() label: string;
+  @Input()
+  set disabled(isDisabled: boolean) {
+    if (isDisabled === true) {
+      this.form.controls.color.disable();
+    } else {
+      this.form.controls.color.enable();
+    }
+  }
+  get disabled(): boolean {
+    return this.form.controls.color.disabled;
+  }
+
+  @Output() segmentChange: EventEmitter<void> = new EventEmitter();
+
+  form: FormGroup;
+
+  constructor(public fb: FormBuilder) {
+    this.form = this.fb.group({ color: 'red' });
+    this.form.valueChanges.subscribe(val => this.segmentChange.emit(val));
+  }
+}
 
 export default {
-  title: 'Components/Form/Segment',
+  title: 'Components/Segment',
   parameters: {
     decorators: [
       withKnobs,
       moduleMetadata({
-        imports: [ReactiveFormsModule, CanopyModule],
-        declarations: [ReactiveFormComponent],
+        declarations: [ReactiveFormSegmentComponent],
+        imports: [ReactiveFormsModule, LgRadioModule],
       }),
     ],
     'in-dsm': {
@@ -26,4 +65,17 @@ export default {
   },
 };
 
-export const standard = () => createRadioStory('segment');
+export const standard = () => ({
+  template: `
+    <lg-reactive-form-segment
+    [disabled]="disabled"
+    [label]="label"
+    (segmentChange)="segmentChange($event)">
+  </lg-reactive-form-segment>
+  `,
+  props: {
+    label: text('label', 'Select a color'),
+    segmentChange: action('segmentChange'),
+    disabled: boolean('disabled', false),
+  },
+});

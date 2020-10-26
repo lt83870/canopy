@@ -1,0 +1,55 @@
+@import '../../../styles/mixins';
+
+.lg-radio-button--segment {
+  display: inline-block;
+  padding: 0 var(--space-xxxs);
+  margin: var(--space-xxxs) 0;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  + .lg-radio-button--segment {
+    border-left: var(--radio-segment-separator-border-width) solid
+      var(--radio-segment-separator-border-color);
+  }
+
+  .lg-radio-button__label {
+    display: inline-block;
+    padding: var(--space-xxxs) var(--space-sm);
+    border-radius: var(--border-radius-xs);
+    min-width: var(--radio-segment-label-min-width);
+    text-align: center;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .lg-radio-button__input {
+    &:checked + .lg-radio-button__label {
+      background-color: var(--radio-bg-color);
+      color: var(--radio-color);
+      transition: all var(--animation-duration) var(--animation-fn);
+    }
+
+    &:disabled:checked + .lg-radio-button__label {
+      background-color: var(--radio-disabled-color);
+      color: var(--radio-color);
+    }
+
+    &:disabled + .lg-radio-button__label {
+      color: var(--disabled-color);
+    }
+
+    &:focus + .lg-radio-button__label {
+      @include lg-inner-focus-outline(var(--default-focus-color));
+    }
+
+    .lg-radio-button--error &:checked + .lg-radio-button__label {
+      background-color: var(--form-error-color);
+      color: var(--radio-color);
+    }
+  }
+}

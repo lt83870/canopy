@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { LgTableBodyComponent } from './table-body/table-body.component';
 import { LgTableCellComponent } from './table-cell/table-cell.component';
-import { LgIconModule } from '../icon/icon.module';
+import { LgIconModule } from '../icon';
 import { LgIconRegistry } from '../icon/icon.registry';
 import { lgIconChevronDown } from '../icon/icons.interface';
 import { LgTableExpandedDetailComponent } from './table-expanded-detail/table-expanded-detail.component';
@@ -25,7 +25,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, LgIconModule],
   declarations: [...components],
   exports: [...components],
 })

@@ -25,7 +25,7 @@ import { RadioVariant } from './radio.interface';
 let uniqueId = 0;
 
 @Component({
-  selector: 'lg-radio-group, lg-filter-group',
+  selector: 'lg-radio-group, lg-filter-group, lg-segment-group',
   templateUrl: './radio-group.component.html',
   styleUrls: ['./radio-group.component.scss'],
   encapsulation: ViewEncapsulation.None,
