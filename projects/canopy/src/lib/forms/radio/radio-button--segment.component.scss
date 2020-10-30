@@ -41,6 +41,7 @@
 
     &:disabled + .lg-radio-button__label {
       color: var(--disabled-color);
+      cursor: not-allowed;
     }
 
     &:focus + .lg-radio-button__label {
