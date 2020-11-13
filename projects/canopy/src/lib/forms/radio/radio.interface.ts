@@ -1,1 +1,1 @@
-export type RadioVariant = 'radio' | 'filter';
+export type RadioVariant = 'radio' | 'filter' | 'segment';

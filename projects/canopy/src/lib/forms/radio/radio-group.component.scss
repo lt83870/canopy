@@ -1,3 +1,5 @@
+@import '../../../styles/mixins';
+
 .lg-radio-group {
   display: block;
   margin-bottom: var(--component-margin);
@@ -14,8 +16,25 @@
   }
 }
 
-.lg-radio-segment {
-  display: inline-block;
-  border: var(--border-width) solid var(--radio-border-color);
-  border-radius: var(--border-radius-sm);
+.lg-radio-group--stack {
+  &-sm .lg-radio-button {
+    @include lg-breakpoint('sm', 'max-width') {
+      display: flex;
+      flex-flow: column wrap;
+    }
+  }
+
+  &-md .lg-radio-button {
+    @include lg-breakpoint('md', 'max-width') {
+      display: flex;
+      flex-flow: column wrap;
+    }
+  }
+
+  &-lg .lg-radio-button {
+    @include lg-breakpoint('lg', 'max-width') {
+      display: flex;
+      flex-flow: column wrap;
+    }
+  }
 }

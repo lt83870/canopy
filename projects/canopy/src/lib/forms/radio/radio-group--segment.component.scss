@@ -1,0 +1,27 @@
+@import '../../../styles/mixins';
+
+.lg-radio-segment {
+  display: inline-block;
+  border: var(--border-width) solid var(--radio-border-color);
+  border-radius: var(--border-radius-sm);
+}
+
+.lg-radio-group {
+  &--stack-sm .lg-radio-segment {
+    @include lg-breakpoint('sm', 'max-width') {
+      display: block;
+    }
+  }
+
+  &--stack-md .lg-radio-segment {
+    @include lg-breakpoint('md', 'max-width') {
+      display: block;
+    }
+  }
+
+  &--stack-lg .lg-radio-segment {
+    @include lg-breakpoint('lg', 'max-width') {
+      display: block;
+    }
+  }
+}

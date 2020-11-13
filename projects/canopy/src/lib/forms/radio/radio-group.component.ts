@@ -2,16 +2,17 @@ import {
   Component,
   ContentChild,
   ContentChildren,
+  ElementRef,
   forwardRef,
   Host,
   HostBinding,
   Input,
   Optional,
   QueryList,
+  Renderer2,
   Self,
   SkipSelf,
   ViewEncapsulation,
-  ElementRef,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 
@@ -27,7 +28,7 @@ let uniqueId = 0;
 @Component({
   selector: 'lg-radio-group, lg-filter-group, lg-segment-group',
   templateUrl: './radio-group.component.html',
-  styleUrls: ['./radio-group.component.scss'],
+  styleUrls: ['./radio-group.component.scss', './radio-group--segment.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class LgRadioGroupComponent implements ControlValueAccessor {
@@ -39,6 +40,29 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() ariaDescribedBy: string;
   variant: RadioVariant;
+
+  _stack: 'sm' | 'md' | 'lg';
+  @Input()
+  set stack(stack: 'sm' | 'md' | 'lg') {
+    if (this._stack) {
+      console.log('_stack', this._stack);
+      this.renderer.removeClass(
+        this.hostElement.nativeElement,
+        `lg-radio-group--stack-${this.stack}`,
+      );
+    }
+    if (stack) {
+      console.log('stack', stack);
+      this.renderer.addClass(
+        this.hostElement.nativeElement,
+        `lg-radio-group--stack-${stack}`,
+      );
+    }
+    this._stack = stack;
+  }
+  get stack() {
+    return this._stack;
+  }
 
   @HostBinding('class.lg-radio-group') class = true;
   @HostBinding('class.lg-radio-group--inline') public get inlineClass() {
@@ -118,6 +142,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     private controlContainer: FormGroupDirective,
     private domService: LgDomService,
     private hostElement: ElementRef,
+    private renderer: Renderer2,
   ) {
     this.variant = this.hostElement.nativeElement.tagName
       .split('-')[1]

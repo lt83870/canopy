@@ -1,7 +1,7 @@
 import { ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { moduleMetadata } from '@storybook/angular';
 import { action } from '@storybook/addon-actions';
 
@@ -12,7 +12,7 @@ import { LgRadioModule } from './radio.module';
   selector: 'lg-reactive-form-segment',
   template: `
     <form [formGroup]="form">
-      <lg-segment-group formControlName="color">
+      <lg-segment-group formControlName="color" [stack]="stack">
         {{ label }}
         <lg-segment-button value="red">Red</lg-segment-button>
         <lg-segment-button value="yellow">Yellow</lg-segment-button>
@@ -24,6 +24,7 @@ import { LgRadioModule } from './radio.module';
 })
 class ReactiveFormSegmentComponent {
   @Input() label: string;
+  @Input() stack: 'sm' | 'md' | 'lg';
   @Input()
   set disabled(isDisabled: boolean) {
     if (isDisabled === true) {
@@ -68,6 +69,7 @@ export default {
 export const standard = () => ({
   template: `
     <lg-reactive-form-segment
+    [stack]="stack"
     [disabled]="disabled"
     [label]="label"
     (segmentChange)="segmentChange($event)">
@@ -77,5 +79,6 @@ export const standard = () => ({
     label: text('label', 'Select a color'),
     segmentChange: action('segmentChange'),
     disabled: boolean('disabled', false),
+    stack: select('stack', ['false', 'sm', 'md', 'lg'], undefined),
   },
 });

@@ -1,5 +1,12 @@
 @import '../../../styles/mixins';
 
+.lg-radio-segment--stack .lg-radio-button--segment {
+  @include lg-breakpoint('md') {
+    display: flex;
+    flex-flow: column wrap;
+  }
+}
+
 .lg-radio-button--segment {
   display: inline-block;
   padding: 0 var(--space-xxxs);
