@@ -135,22 +135,18 @@
   },
   "lint-staged": {
     "projects/canopy/src/**/*.svg": [
-      "npm run build:icons",
-      "git add"
+      "npm run build:icons"
     ],
     "projects/canopy/src/**/*.{html, json, js}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "projects/canopy/src/**/*.{scss, css}": [
       "prettier --write",
-      "stylelint --fix",
-      "git add"
+      "stylelint --fix"
     ],
     "projects/canopy/src/**/*.ts": [
       "prettier --write",
-      "tslint -p tsconfig.json -c tslint.json --fix",
-      "git add"
+      "tslint -p tsconfig.json -c tslint.json --fix"
     ]
   },
   "config": {
