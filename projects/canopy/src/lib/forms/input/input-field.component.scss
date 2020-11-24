@@ -45,6 +45,8 @@
 
     > .lg-btn {
       margin-bottom: 0;
+      margin-top: 0;
+      margin-right: var(--suffix-button-margin);
     }
 
     > .lg-btn:last-child {
@@ -99,6 +101,7 @@
   display: block;
   border: none;
   line-height: var(--input-line-height);
+  margin: 0;
   padding: var(--input-vertical-padding) var(--space-sm);
   outline: 0;
   max-width: 100%;
