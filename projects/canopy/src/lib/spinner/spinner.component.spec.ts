@@ -32,7 +32,7 @@ describe('LgSpinnerComponent', () => {
     expect(link).toBeTruthy();
   });
 
-  fit('adds the small size variant to the component', () => {
+  it('adds the small size variant to the component', () => {
     expect(fixture.debugElement.nativeElement.getAttribute('class')).not.toContain(
       'lg-spinner--sm',
     );
