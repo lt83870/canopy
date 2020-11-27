@@ -1,27 +1,48 @@
 @import '../../../styles/mixins';
 
 .lg-radio-segment {
-  display: inline-block;
+  display: flex;
   border: var(--border-width) solid var(--radio-border-color);
   border-radius: var(--border-radius-sm);
 }
 
+$stack-breakpoints: 'sm', 'md', 'lg' !default;
+
 .lg-radio-group {
-  &--stack-sm .lg-radio-segment {
-    @include lg-breakpoint('sm', 'max-width') {
-      display: block;
-    }
-  }
+  @each $stack-breakpoint in $stack-breakpoints {
+    &--stack-#{$stack-breakpoint} .lg-radio-segment {
+      @include lg-breakpoint($stack-breakpoint, 'max-width') {
+        display: block;
+      }
 
-  &--stack-md .lg-radio-segment {
-    @include lg-breakpoint('md', 'max-width') {
-      display: block;
-    }
-  }
+      .lg-radio-button--segment {
+        @include lg-breakpoint($stack-breakpoint, 'max-width') {
+          margin: 0;
+        }
 
-  &--stack-lg .lg-radio-segment {
-    @include lg-breakpoint('lg', 'max-width') {
-      display: block;
+        .lg-radio-button__label {
+          @include lg-breakpoint($stack-breakpoint, 'max-width') {
+            margin: calc(var(--space-xxxs) + var(--radio-segment-separator-border-width))
+              0 var(--space-xxxs);
+          }
+        }
+
+        + .lg-radio-button--segment {
+          @include lg-breakpoint($stack-breakpoint, 'max-width') {
+            border-left: 0;
+          }
+
+          &::before {
+            @include lg-breakpoint($stack-breakpoint, 'max-width') {
+              content: '';
+              display: inline-block;
+              width: 100%;
+              height: var(--radio-segment-separator-border-width);
+              background-color: var(--radio-segment-separator-border-color);
+            }
+          }
+        }
+      }
     }
   }
 }

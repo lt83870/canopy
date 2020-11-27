@@ -45,14 +45,12 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
   @Input()
   set stack(stack: 'sm' | 'md' | 'lg') {
     if (this._stack) {
-      console.log('_stack', this._stack);
       this.renderer.removeClass(
         this.hostElement.nativeElement,
         `lg-radio-group--stack-${this.stack}`,
       );
     }
     if (stack) {
-      console.log('stack', stack);
       this.renderer.addClass(
         this.hostElement.nativeElement,
         `lg-radio-group--stack-${stack}`,
@@ -117,7 +115,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
     this._value = value;
     this.onChange(value);
     if (this.radios) {
-      const selectedRadio = this.radios.find(option => option.value === value);
+      const selectedRadio = this.radios.find((option) => option.value === value);
       if (selectedRadio && !selectedRadio.checked) {
         selectedRadio.checked = true;
       }
@@ -172,7 +170,7 @@ export class LgRadioGroupComponent implements ControlValueAccessor {
 
   private _updateRadioButtonNames(): void {
     if (this.radios) {
-      this.radios.forEach(radio => {
+      this.radios.forEach((radio) => {
         radio.name = this.name;
       });
     }
